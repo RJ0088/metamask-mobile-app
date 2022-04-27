@@ -264,6 +264,12 @@ class DeeplinkManager {
 					if (!WalletConnect.isValidUri(href)) return;
 
 					WalletConnect.newSession(href, params?.redirect, params?.autosign, origin);
+				} else if (url.startsWith('metamask://dapp/')) {
+					try {
+						this._handleBrowserUrl(urlObj.href.split('metamask://dapp/')[1]);
+					} catch (e) {
+						if (e) Alert.alert(strings('deeplink.invalid'), e.toString());
+					}
 				}
 				break;
 			default:
