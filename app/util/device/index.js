@@ -97,6 +97,6 @@ export default class Device {
 	}
 
 	static getDeviceOS() {
-        return getSystemVersion();
-    }
+		return getSystemVersion();
+	}
 }
